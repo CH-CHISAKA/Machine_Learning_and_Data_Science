@@ -70,6 +70,90 @@ Having an operational definition is important because it:
 
 An operational definition is important because it clearly specifies how a variable or abstract concept will be measured or classified, making the research consistent, reliable and repeatable/reproducible.
 
+## Qualitative (Categorical) Variables 
+
+Variables whose values fall into groups or categories.
+* Contains two main subgroups
+    - Nominal Variables 
+    - Ordinal Variables
+
+
+![categorical_variables_example.png](categorical_variables_example.png)
+
+### Nominal Variables 
+
+Variables whose categories are just names with no natural ordering.
+
+Examples:
+* Gender 
+* Marital Status 
+* Skin Colour 
+* District of Birth
+
+### Ordinal Variables (Ordered Lists)
+
+Variables whose categories have a natural ordering.
+
+Examples:
+* Education Level 
+* Performance category 
+* Degree classification
+
+
+## Quantitative (Numerical) Variables
+
+These are numeric variables:
+
+* Mathematically and structurally, they are categorized into four primary subgroups based on the intersection of these properties:
+
+
+![Numerical Variables Subgroup Category](<numerical_variables_subgroup_category.png>)
+
+1. _Discrete Ratio Variables_: 
+These are variables that consist of countable, whole numbers and have a true zero point (where zero means "none").
+
+* Key feature: You cannot have fractions, and zero means an absolute absence of the value.
+
+* Examples: Number of children in a family, bank account balance (in whole cents), number of hospital visits, website clicks.
+
+2. _Continuous Ratio Variables_:
+These are variables measured on a continuous scale with infinite precision and a true zero point.
+
+* Key feature: Can include decimals/fractions, zero means "none", and you can say one value is "twice as much" as another.
+
+* Examples: Distance, weight, height, time duration, speed.  
+
+---
+
+***
+
+___
+
+1. _Discrete Interval Variables_: 
+These are variables that change in fixed, countable steps but do not have a true zero point.
+
+* Key feature: Whole numbers only, but zero is just an arbitrary placeholder on a scale rather than a complete absence.
+
+* Examples: Calendar years (e.g., the year 2026), shoe sizes (sizes change in distinct increments like 8, 8.5, 9, but a size "0" is just a label, not an absence of a foot).
+
+2. _Continuous Interval Variables_:
+These are variables measured on a fluid, infinite scale that lacks a true zero point.
+
+* Key feature: Can include precise decimals, but ratios are meaningless (e.g., 40°C is not "twice as hot" as 20°C because 0°C is not absolute zero).
+
+* Examples: Temperature (Celsius or Fahrenheit), IQ scores, GPS coordinates (latitude and longitude).
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
