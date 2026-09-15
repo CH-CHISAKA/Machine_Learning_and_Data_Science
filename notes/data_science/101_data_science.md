@@ -158,15 +158,3 @@ These are variables measured on a fluid, infinite scale that lacks a true zero p
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
