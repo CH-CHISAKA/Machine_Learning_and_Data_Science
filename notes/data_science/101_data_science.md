@@ -30,6 +30,8 @@ This process includes:
 _What is a variable?_
 A variable is something that can have different values or characteristics.
 
+They are split into **Qualitative** _(Categorical)_ and **Quantitative** _(Numerical)_ types.
+
 The four ways to classify data in Statistics:
 
 1. Nominal 
@@ -40,7 +42,6 @@ The four ways to classify data in Statistics:
 
 4. Continuous
 
-They are split into **Qualitative** _(Categorical)_ and **Quantitative** _(Numerical)_ types 
 
 
 ![Types of Variables](<types_of_variables.png>)
@@ -142,6 +143,50 @@ These are variables measured on a fluid, infinite scale that lacks a true zero p
 * Key feature: Can include precise decimals, but ratios are meaningless (e.g., 40°C is not "twice as hot" as 20°C because 0°C is not absolute zero).
 
 * Examples: Temperature (Celsius or Fahrenheit), IQ scores, GPS coordinates (latitude and longitude).
+
+
+## Data Collection 
+
+Data is collected from either a **Population** or a **Sample**
+
+### Population 
+This is a set of all elements of interest in a particular study 
+
+### Sample 
+A subset of the population. 
+
+A sample contains only a portion of a population of interest.
+
+This is a subset of measurements selected from the population of interest
+
+### Parameter or Statistic?
+
+#### Population Parameter 
+A population parameter summarizes the value of a specific variable for a population.
+
+Example:
+-  The average height of all adult women in Switzerland is a population parameter.
+
+#### Sample Statistic
+A sample statistic summarizes the value of a specific variable for sample data.
+
+Example:
+- The average height of 1000 randomly selected adult women in Switzerland is a sample statistic.
+
+
+## Data Cleaning 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
