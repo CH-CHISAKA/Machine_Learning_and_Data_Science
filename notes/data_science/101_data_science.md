@@ -174,19 +174,35 @@ Example:
 - The average height of 1000 randomly selected adult women in Switzerland is a sample statistic.
 
 
-## Data Cleaning 
+## Data Cleaning/ Preprocessing
+
+Data cleaning ensure that the dataset is correct, consistent, and prepared for analysis.
+
+This consists of the process of finding and correcting (or removing) errors and inconsistencies in the dataset.
+
+Missing data can come about for several reasons:
+- Through human error.
+- Equipment failure.
+- Due to privacy concerns.
+
+__Ways of Handling Missing Data__
+- Deleting rows with missing data.
+- Imputing missing values using _mean_, _median_ or _mode_, or _predicting missing values using machine learning techniques_.
+- Outlier treatments - to avoid bias
+
+### Cleaning invalid variables values can be semi-automated.
+Invalid variables can be identified by simple scanning techniques:
+Example:
+- Non-numeric entries for numerical variables.
+- Values for categorical variables that don't match a pre-defined category.
+- Values for a numeric variable outside a pre-defined explicit range.
 
 
 
+## EDA - Exploratory Data Analysis
+This is performed with the intent of gaining insight into data, understanding its structure, detecting patterns, and spotting anomalies.
 
-
-
-
-
-
-
-
-
+EDA is also used to observe the potential challenges that could arise during analysis or modelling and the identification of outliers (_indicating errors in data collection, or extraordinary events and their treatment depends on the objective of the study_).
 
 
 
