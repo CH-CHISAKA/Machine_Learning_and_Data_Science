@@ -1,0 +1,13 @@
+
+
+# Numerical computing and array operations
+numpy
+
+# Data manipulation and analysis
+pandas
+
+# Data visualization and plotting
+matplotlib
+
+# Statistical data visualization
+seaborn
