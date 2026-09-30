@@ -1,0 +1,2 @@
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QHomoscedasticity\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QNo endogeneity\\E$"}
