@@ -3,3 +3,4 @@ Homoscedasticity
 Homoscedasticity
 Endogeneity
 homoscedasticity
+endogeneity
