@@ -2,3 +2,13 @@
 .env
 
 structure.md
+
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS metadata files
+.DS_Store
+._*
+
+# Clean metadata: find . -name '._*' -delete or dot_clean -m .

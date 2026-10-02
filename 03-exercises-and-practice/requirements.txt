@@ -1,0 +1,22 @@
+
+
+# Numerical computing and array operations
+numpy
+
+# Data manipulation and analysis
+pandas
+
+# Data visualization and plotting
+matplotlib
+
+# Statistical data visualization
+seaborn
+
+# Scientific computing and optimization
+scipy
+
+# Scikit-learn for machine learning and data mining
+scikit-learn
+
+# Diagnostic tools for linear regression
+lmdiag
