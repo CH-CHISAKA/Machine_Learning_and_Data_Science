@@ -200,19 +200,34 @@ The number of branches that the line intersects represents the number of cluster
 
 <img src="img/dendrogram_clustering.png" alt="Dendrogram Clustering" width="500">
 
+For example:
+- A cut intersecting 2 branches gives 2 clusters.
+- A cut intersecting 3 branches gives 3 clusters.
+- A cut intersecting 4 branches gives 4 clusters.
 
+**Important**: Hierarchical clustering allows us to inspect the data structure before deciding how many clusters to retain.
 
+## Dissimilarity and Distance Measures
+Hierarchical clustering needs a way of determining which observations or groups are closest to one another.
+- This is called **dissimilarity**.
 
+Dissimilarity should satisfy these properties:
 
+1. **Symmetry**:
+$$d(a,b) = d(b,a)$$
 
+- The distance from A to B is the same as the distance from B to A.
 
+2. **Positivity**:
+$$
+d(a,b)\geq 0
+$$
 
+- Distance cannot be negative.
 
+3. **Increasing Dissimilarity**
 
-
-
-
-
+The distance increases as two observations become more different.
 
 
 
