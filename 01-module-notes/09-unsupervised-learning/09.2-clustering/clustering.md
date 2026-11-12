@@ -461,70 +461,244 @@ Explanation:
 ###### What is K-means clustering?
 K-means is an unsupervised machine learning algorithm that divides observations into a predefined number of clusters.
 
+The main objective is to group observations so that:
+* Observations withing the same cluster are as similar as possible.
+* Observations in different clusters are relatively dissimilar.
 
+Unlike hierarchical clustering, K-means requires us to specify the number of clusters, \(k\), before running the algorithm.
 
+**Understanding centroids**
 
+A centroid is the centre of a cluster.
 
+It represents the mean position of all observations assigned to that cluster.
 
+For example, imagine three groups of students:
+- Cluster 1: Sporty students.
+- Cluster 2: Social students.
+- Cluster 3: Relaxed students.
 
+Each cluster has a centroid representing the average activity preferences of its members.
 
 
+<img src="img/understanding_centroids.png" alt="Understanding Centroids" width="500">
 
 
+## How does the K-means algorithm work?
 
+**Step 1: Initialize cluster centres**
+- Choose \(k\) initial cluster centres (centroids).
 
+**Step 2: Assignment step**
+- Assign each observation to the nearest centroid using distance.
 
+**Step 3: Update step**
+- Recalculate each centroid by finding the mean of all observations assigned to that cluster.
 
+**Step 4: Repeat until convergence**
+- Repeat the assignment and update steps until the centroids stop changing, or another stopping condition is reached.
 
+---
+* Every observation is assigned to the nearest centroid.
+* K-means uses squared Euclidean distance when determining cluster assignments.
+* The observation is assigned to the cluster whose centroid produces the smallest squared distance.
+* After assigning observations, the algorithm recalculates the centroid.
+* For a cluster containing \(n\) observations:
 
+$$
+\mu=\frac{1}{n}\sum_{i=1}^{n}x_i
+$$
 
+Where:
+- $(\mu)$ = New centroid.
+- $(n)$ = Number of observations.
+- $(x_i)$ = Individual observations.
 
+The algorithm continues until the centroids no longer change significantly or the iteration limit is reached.
 
+## What is within-cluster sum of squares?
+K-means aims to minimize the total within-cluster sum of squares.
 
+This is also called `inertia` in scikit-learn.
 
+$$
+WSS=\sum_{k=1}^{K}\sum_{x_i\in C_k}
+\|x_i-\mu_k\|^2
+$$
 
+Where:
+- $(K)$ = Number of clusters.
+- $(C_k)$ = Cluster \(k\).
+- $(x_i)$ = An observation.
+- $(\mu_k)$ = Centroid of cluster \(k\).
 
+In simple terms:
 
+- It measures how far observations are from their assigned cluster centres.
 
+- A smaller WSS indicates that observations are closer to their respective centroids.
 
+- However, adding more clusters will generally reduce inertia, so we should not simply select the largest possible number of clusters.
 
+## Choosing the optimal number of clusters
+Silhouette Score to evaluate different K values.
 
+- It is useful to understand the purpose of choosing K.
 
+Suppose we want to segment customers.
 
+If we choose:
+- K = 2: We might group customers into two broad segments.
+- K = 5: We might identify five more specific customer segments.
+- K = 20: We might create too many small segments that are difficult to interpret.
 
+The objective is to find a useful balance between separation and cohesion.
 
+### Elbow Method
+Inertia can also be examined using the Elbow Method.
 
+The method involves:
+1. Run K-means with different values of K.
+2. Record the inertia for each K.
+3. Plot K against inertia.
+4. Identify the point where the reduction in inertia begins to slow down significantly.
 
+<img src="img/elbow_method.png" alt="Elbow Method" width="500">
 
 
 
 
+# PART 5: MODEL-BASED CLUSTERING
+###### What is model-based clustering?
+Model-based clustering is an unsupervised learning technique that assumes the data comes from a mixture of two or more probability distributions.
 
+**Gaussian Mixture Models (GMM)**.
 
+Unlike K-means, which assigns each observation to one cluster based on the nearest centroid, GMM calculates the probability that an observation belongs to each cluster.
 
+- This is called ***soft assignment***.
 
+## Understanding Gaussian distributions
+A Gaussian distribution is also known as a **normal distribution**.
 
+It is a probability distribution that is often represented by a bell-shaped curve.
 
+<img src="img/gaussian_distribution.png" alt="Gaussian Distribution_Normal Distribution" width="70%">
 
+A Gaussian distribution is characterized by:
+- Mean $(\mu)$: The centre of the distribution.
+- Variance: How spread out the values are.
+- Covariance matrix $(\Sigma)$: Describes the variances and relationships between multiple features.
 
+In model-based clustering, each cluster is represented by a Gaussian distribution.
 
+**Understanding Gaussian Mixture Models**
+Imagine that a dataset contains three groups of customers.
 
+Rather than assuming that each customer belongs exclusively to one group based on distance, GMM estimates the probability that each customer belongs to each of the three groups.
 
+Example:
+| Customer | Cluster 1 | Cluster 2 | Cluster 3 |
+|---|---:|---:|---:|
+| A | 0.85 | 0.10 | 0.05 |
+| B | 0.20 | 0.70 | 0.10 |
+| C | 0.15 | 0.25 | 0.60 |
 
+For customer A:
+- 85% probability of belonging to Cluster 1.
+- 10% probability of belonging to Cluster 2.
+- 5% probability of belonging to Cluster 3.
 
+The highest probability indicates the most likely cluster.
 
+**Important**: The probabilities for each observation add up to 1.
 
 
+**Parameters of a Gaussian Mixture Model**
 
+| Parameter | Meaning |
+|---|---|
+| $(\mu_k)$ | Mean vector of cluster k |
+| $(\Sigma_k)$ | Covariance matrix of cluster k |
+| Mixture probability | Probability or weight associated with the cluster |
 
+The model uses these parameters to describe the distributions and estimate cluster membership.
 
+## Hard Assignment vs. Soft Assignment
+This is an important distinction.
+| K-means (hard assignment) | GMM (soft assignment) |
+|---|---|
+| Each observation is assigned to one cluster. | Each observation receives probabilities for all clusters. |
+| Uses nearest centroid. | Uses probability distributions. |
+| Produces cluster labels directly. | Produces membership probabilities and predicted labels. |
+| Does not explicitly model membership uncertainty. | Represents uncertainty in cluster membership. |
 
 
+## How Gaussian Mixture Models work: EM algorithm
+Through two steps:
+1. Estimation Step.
+2. Maximization Step.
 
+Together, these form the Expectation-Maximization (EM) algorithm.
 
+**E-step: Expectation**
+The algorithm calculates the probability that each observation belongs to each cluster using the current model parameters.
 
+| Observation | Cluster A | Cluster B |
+|---|---:|---:|
+| Student 1 | 0.80 | 0.20 |
+| Student 2 | 0.40 | 0.60 |
+| Student 3 | 0.90 | 0.10 |
 
+These probabilities indicate how likely each observation is to belong to each group.
 
+**M-step: Maximization**
+The algorithm uses the probabilities calculated in the E-step to update the model parameters.
+
+It updates:
+- Cluster means.
+- Covariance matrices.
+- Cluster mixture weights.
+
+Observations are weighted according to their probability of belonging to each cluster.
+
+**Repeat until convergence**
+
+The algorithm alternates between E-step and M-step until the model parameters stabilize or the convergence criteria are reached.
+
+
+<img src="img/em_algorithm.png" alt="EM Algorithm" width="70%">
+
+# Choosing between the three clustering methods
+Now that we understand all three methods, we need to know when to use each one.
+| Criteria | Hierarchical | K-means | GMM |
+|---|---|---|---|
+| Requires predefined K | Not strictly when building the hierarchy | Yes | Yes, number of components |
+| Main technique | Repeated merging | Centroid-based assignment | Probability distributions |
+| Assignment | Hard | Hard | Soft probabilities |
+| Visual output | Dendrogram | Centroids and groups | Gaussian distributions |
+| Cluster shape | Depends on linkage | Generally spherical/compact | More flexible |
+| Best-known strength | Reveals hierarchy | Simple and efficient | Models uncertainty |
+| Model selection | Cut dendrogram | Elbow/silhouette | BIC/AIC |
+
+**Which algorithm should you choose?**
+
+Choose hierarchical clustering when:
+- You want to understand the relationships between observations.
+- You do not initially know how many clusters to select.
+- You want to examine the dendrogram.
+
+Choose K-means when:
+- You have a large numerical dataset.
+- You want a simple and relatively fast clustering algorithm.
+- You expect relatively compact clusters.
+
+Choose GMM when:
+- You want membership probabilities.
+- Observations may belong partly to multiple groups.
+- You want more flexible cluster shapes than standard K-means.
+
+Note  that no clustering method is universally best. The appropriate method depends on the dataset and the objective.
 
 
 
