@@ -456,8 +456,10 @@ Explanation:
 * Complete = Maximum.
 * Ward = Minimum increase in within-cluster variance.
 
+# PART 4: K-MEANS CLUSTERING
 
-
+###### What is K-means clustering?
+K-means is an unsupervised machine learning algorithm that divides observations into a predefined number of clusters.
 
 
 
