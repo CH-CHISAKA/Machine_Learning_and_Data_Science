@@ -700,19 +700,93 @@ Choose GMM when:
 
 Note  that no clustering method is universally best. The appropriate method depends on the dataset and the objective.
 
+# PART 6: EVALUATING CLUSTERING QUALITY
+###### Why do we need to evaluate clustering?
 
+After running a clustering algorithm, how do we know whether the resulting groups are good?
 
+- For supervised learning, we can compare predictions against known labels.
 
+For example, if a model predicts whether a passenger survived, we can compare its prediction with the actual survival outcome.
 
+However, clustering is unsupervised. We do not have known class labels to use as the direct answer.
+- Ordinary supervised cross-validation is not directly applicable to evaluating clustering quality.
 
+We therefore use other evaluation measures.
+- the **Silhouette Score**.
 
+## Understanding the Silhouette Score
 
+The Silhouette Score measures how well an observation fits within its assigned cluster compared with neighbouring clusters.
 
+It evaluates two things:
+1. **Cohesion**: How close an observation is to other observations in its own cluster.
+2. **Separation**: How far an observation is from observations in other clusters.
 
+The score ranges from:
+$$
+-1\leq s(i)\leq 1
+$$
 
+**Understanding the formula**
+$$
+s(i)=\frac{b(i)-a(i)}
+{\max(a(i),b(i))}
+$$
 
+Where:
+- $(a(i))$: Average distance between observation \(i\) and all other observations in its own cluster.
+- $(b(i))$: Lowest average distance between observation \(i\) and observations in another cluster (its nearest neighbouring cluster).
 
+## Understanding the three possible results
 
+<img src="img/understanding_silhouette_score.png" alt="Silhouette Score" width="500">
+
+**Example calculation**
+
+Suppose an observation has:
+
+- Average distance to its own cluster: $(a(i)=2)$.
+- Average distance to its nearest neighbouring cluster: $(b(i)=6)$.
+
+Then:
+$$
+s(i)=\frac{6-2}{\max(2,6)}
+$$
+
+$$
+s(i)=\frac{4}{6}=0.667
+$$
+
+This is a relatively good silhouette score.
+
+- The observation is much closer to its own cluster than to its neighbouring cluster.
+
+Now consider:
+$$
+a(i)=5,\quad b(i)=4
+$$
+
+$$
+s(i)=\frac{4-5}{\max(5,4)}
+$$
+
+$$
+s(i)=-0.2
+$$
+
+This negative value suggests that the observation may be incorrectly assigned.
+
+## Average Silhouette Score
+We can calculate the average silhouette score across all observations.
+
+A higher average score generally indicates better-separated and more cohesive clusters.
+
+However, interpretation should also consider:
+- Cluster sizes.
+- Outliers.
+- Whether the groups make business or practical sense.
+- Whether the selected number of clusters is useful.
 
 
 
