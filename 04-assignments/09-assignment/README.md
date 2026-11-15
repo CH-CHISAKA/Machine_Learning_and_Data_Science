@@ -12,7 +12,19 @@
 
 
 
+# Homework 2: 1D K-means 
+* Write a function my_kmean(x, k, max_iter=10) that performs K-means in one dimension.
 
+Inputs
+
+- x: a numeric vector (1-D)
+- k: number of clusters
+- max_iter (optional): stop after this many iterations
+
+Output
+
+- A two-column table/data frame:
+- original x, 2) assigned cluster
 
 
 
