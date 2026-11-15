@@ -788,20 +788,131 @@ However, interpretation should also consider:
 - Whether the groups make business or practical sense.
 - Whether the selected number of clusters is useful.
 
+## Silhouette plot
+
+A silhouette plot displays:
+- The silhouette values of individual observations.
+- The clusters to which observations belong.
+- The distribution of silhouette scores within each cluster.
+- A reference line showing the average silhouette score.
+
+<img src="img/silhouette_plot_analysis.png" alt="Silhouette Plot Analysis" width="500">
+
+How to interpret a silhouette plot:
+- Long positive bars indicate observations that fit well within their clusters.
+- Bars near zero indicate observations near cluster boundaries.
+- Negative bars indicate potentially incorrectly assigned observations.
+- Clusters with many negative values may need further investigation.
+
+# PART 7: PRACTICAL ISSUES WITH CLUSTERING
+###### Important considerations before performing clustering
+There is no single correct answer when choosing a clustering approach.
+
+Several practical decisions need to be made.
+
+**Should the observations or features be standardized?**
+
+Yes, standardization is often necessary when features have different measurement scales.
+
+| Feature | Scale |
+|---|---:|
+| Age | 18–70 |
+| Income | 10,000–500,000 |
+| Number of purchases | 1–30 |
+
+Without standardization, income may dominate distance-based clustering.
+
+**Which dissimilarity measure should be used?**
+
+The distance measure determines how similarity is calculated.
+
+The lecture introduces Euclidean distance.
+
+The choice should reflect the nature of the dataset and the features being analysed.
 
 
+**Which linkage method should be selected?**
+
+For hierarchical clustering, consider:
+- Single linkage: Minimum distance.
+- Complete linkage: Maximum distance.
+- Ward's method: Minimum increase in within-cluster variance.
+The choice affects the shape and structure of the resulting clusters.
+
+**Where should the dendrogram be cut?**
+
+A dendrogram can be cut at different heights, producing different numbers of clusters.
+
+The decision should consider:
+- The distance between merges.
+- The separation of groups.
+- The practical meaning of the clusters.
+
+**How many clusters should K-means use?**
+K-means requires K to be specified before fitting the model.
+
+Possible evaluation techniques include:
+- Elbow method.
+- Silhouette score.
+- Practical interpretation of the clusters.
+
+**Outliers**
+
+Outliers are observations that differ considerably from the rest of the dataset.
+
+They can affect distance calculations and the position of centroids.
+
+It is important to inspect unusual observations before clustering.
+
+**Cluster interpretation**
+
+A mathematically good clustering result is not automatically meaningful.
+
+For example, if a company obtains three customer clusters, it should examine whether these groups represent meaningful customer behaviours that can support decisions.
+
+# PART 8: PCA AND CLUSTERING 
+PCA stands for **Principal Component Analysis**.
+
+- It is a dimensionality reduction technique used to represent data using fewer variables while preserving as much variation as possible.
+
+**Why do we need PCA?**
+
+- Imagine a dataset containing 20 features.
+
+- It can be difficult to visualize all 20 dimensions simultaneously.
+
+- PCA transforms the original features into new variables called principal components.
+
+- These components summarize patterns of variation in the original data.
+
+## Principal components
+The two main components often used for visualization are:
+- PC1: The first principal component, capturing the greatest possible variance.
+- PC2: The second principal component, capturing the greatest remaining variance while being orthogonal to PC1.
+
+<img src="img/pca.png" alt="PCA" width="500">
+
+Iris example shows:
+- PC1 explains approximately 72.77% of the variance.
+- PC2 explains approximately 23.03% of the variance.
+
+Together:
+$$
+72.77\%+23.03\%=95.80\%
+$$
+
+This means that the first two principal components retain approximately 95.8% of the variation in the original four features in that example.
 
 
+## Why combine PCA with clustering?
+PCA can help us:
+1. Reduce the number of dimensions.
+2. Visualize high-dimensional datasets.
+3. Identify patterns and relationships.
+4. Make cluster structures easier to inspect.
 
+Note:
+PCA does not itself perform clustering. It transforms the features into a lower-dimensional representation.
 
-
-
-
-
-
-
-
-
-
-
+Clustering algorithms can then be applied to the transformed data.
 
