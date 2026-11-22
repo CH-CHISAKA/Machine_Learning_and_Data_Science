@@ -1,0 +1,20 @@
+
+# Data manipulation and analysis libraries
+numpy
+pandas
+
+# Machine learning and data visualization libraries
+scikit-learn
+matplotlib
+
+# Computer vision and image processing libraries
+opencv-python
+pillow
+
+# Deep learning libraries
+tensorflow
+keras
+torch
+
+# Generative AI and diffusion models
+diffusers
