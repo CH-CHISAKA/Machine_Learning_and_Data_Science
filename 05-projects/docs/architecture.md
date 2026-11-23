@@ -1,7 +1,12 @@
-# Proposed System Architecture 
+# Proposed System Architecture
 
-<img src='img/system_architecture.png' alt='Proposed System Architecture' width=500>
-<p><strong>Proposed System Architecture<strong></p>
+<img
+  src='../img/system_architecture.png'
+  alt="Proposed System Architecture"
+  width="500"
+/>
+
+<p><strong>Proposed System Architecture</strong></p>
 
 ## Algorithms: What are we actually implementing?
 
